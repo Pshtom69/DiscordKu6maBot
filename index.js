@@ -165,6 +165,7 @@ client.on('message', (message) => {
       {name: 'k!주사위', desc: '랜덤 숫자'},
       {name: 'k!강퇴', desc: '명령어 입력후 유저멘션'},
       {name: 'k!밴', desc: '명령어 입력후 유저멘션'},
+      {name: 'k!랜덤결혼할나이', desc: '명령어 실행하면 20에서 100까지의 나이가 랜덤으로 뽑힙니다.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -296,8 +297,8 @@ client.on('message', (message) => {
     let max = 6;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${dice_num} 이(가) 나왔습니다.`);
-  } else if(message.content.startsWith('k!랜덤죽음나이')) {
-    let min = 1;
+  } else if(message.content.startsWith('k!랜덤결혼할나이')) {
+    let min = 20;
     let max = 100;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${dice_num} 이(가) 나왔습니다.`);
