@@ -301,8 +301,8 @@ client.on('message', (message) => {
     let min = 20;
     let max = 100;
     let dice_num = parseInt(Math.random() * (max - min) + min);
-    return message.reply(`${dice_num} 이(가) 나왔습니다.`);
-  } else if(message.content.startsWith('')) {
+    return message.reply(`${dice_num} 이(가) 나왔습니다. **결혼을 축하합니다.**`);
+  } else if(message.content.startsWith('쿠쿠야')) {
     let arr = [
       '네.',
       '말씀하세요.',
@@ -312,7 +312,7 @@ client.on('message', (message) => {
     let max = arr.length;
     let index = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${arr[index]}`);
-} else if(message.content.startsWith('')) {
+} else if(message.content.startsWith('쿠쿠야')) {
   let arr = [
     '네.',
     '말씀하세요.',
