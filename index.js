@@ -296,7 +296,7 @@ client.on('message', (message) => {
     let max = 6;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${dice_num} 이(가) 나왔습니다.`);
-  } else if(message.content.startsWith('야')) {
+  } else if(message.content.startsWith('')) {
     let arr = [
       '네.',
       '말씀하세요.',
@@ -306,7 +306,16 @@ client.on('message', (message) => {
     let max = arr.length;
     let index = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${arr[index]}`);
-  }
+} else if(message.content.startsWith('')) {
+  let arr = [
+    '네.',
+    '말씀하세요.',
+    '무슨일이죠.',
+  ]
+  let min = 0;
+  let max = arr.length;
+  let index = parseInt(Math.random() * (max - min) + min);
+  return message.reply(`${arr[index]}`);
 });
 
 function checkPermission(message) {
