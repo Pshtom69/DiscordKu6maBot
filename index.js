@@ -302,6 +302,11 @@ client.on('message', (message) => {
     let max = 100;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${dice_num} 이(가) 나왔습니다. **결혼을 축하합니다.**`);
+  } else if(message.content.startsWith('k!랜덤아들딸수')) {
+    let min = 1;
+    let max = 100;
+    let dice_num = parseInt(Math.random() * (max - min) + min);
+    return message.reply(`${dice_num} 명(이) 태어납니다.`);
   } else if(message.content.startsWith('쿠쿠야')) {
     let arr = [
       '네.',
