@@ -8,6 +8,7 @@ const MessageAdd = require('./db/message_add.js')
 const welcomeChannelName = [
   "welcome";
   "안녕하세요";
+]
 const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
