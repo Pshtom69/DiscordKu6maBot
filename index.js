@@ -136,11 +136,11 @@ client.on('message', (message) => {
   }
 
   if(message.content == 'k!소개') {
-    let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
+    let img = 'https://media.discordapp.net/attachments/739024887829495818/770899087855714324/KuroKuma.png';
     let embed = new Discord.RichEmbed()
-      .setTitle('타이틀')
+      .setTitle('소개 of 만든이,봇')
       .setURL('http://www.naver.com')
-      .setAuthor('나긋해', img, 'http://www.naver.com')
+      .setAuthor('KuroKuma', img, 'http://www.naver.com')
       .setThumbnail(img)
       .addBlankField()
       .addField('Inline field title', 'Some value here')
@@ -295,7 +295,7 @@ client.on('message', (message) => {
     let min = 1;
     let max = 6;
     let dice_num = parseInt(Math.random() * (max - min) + min);
-    return message.reply(`${dice_num}이(가) 나왔습니다.`);
+    return message.reply(`${dice_num} 이(가) 나왔습니다.`);
   } else if(message.content.startsWith('야')) {
     let arr = [
       '네.',
