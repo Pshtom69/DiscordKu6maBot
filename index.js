@@ -119,11 +119,11 @@ client.on('message', (message) => {
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     embed.addField('Discord.js',   `v${Discord.version}`, true);
     embed.addField('Node',         `${process.version}`, true);
-    
+
     let arr = client.guilds.array();
     let list = '';
     list = `\`\`\`css\n`;
-    
+
     for(let i=0;i<arr.length;i++) {
       // list += `${arr[i].name} - ${arr[i].id}\n`
       list += `${arr[i].name}\n`
@@ -171,7 +171,7 @@ client.on('message', (message) => {
       .setColor('#186de6')
       .setFooter(`콜라곰 BOT ❤️`)
       .setTimestamp()
-    
+
     commandList.forEach(x => {
       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
     });
@@ -213,14 +213,14 @@ client.on('message', (message) => {
         .setColor('#186de6')
         .setFooter(`콜라곰 BOT ❤️`)
         .setTimestamp()
-  
+
       embed.addField('공지: ', contents);
-  
+
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
         x.user.send(embed)
       });
-  
+
       return message.reply('공지를 전송했습니다.');
     } else {
       return message.reply('채널에서 실행해주세요.');
@@ -233,7 +233,7 @@ client.on('message', (message) => {
         if(x.user.bot) return;
         x.user.send(`<@${message.author.id}> ${contents}`);
       });
-  
+
       return message.reply('공지를 전송했습니다.');
     } else {
       return message.reply('채널에서 실행해주세요.');
@@ -242,7 +242,7 @@ client.on('message', (message) => {
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
     }
-    
+
     if(message.channel.type != 'dm' && checkPermission(message)) return
 
     var clearLine = message.content.slice('!청소 '.length);
@@ -276,6 +276,32 @@ client.on('message', (message) => {
         })
         .catch(console.error)
     }
+  } else if(message.content.startsWith('!강퇴')) {
+    if(message.channel.type == 'dm') {
+      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+    }
+
+    if(message.channel.type != 'dm' && checkPermission(message)) return
+
+    console.log(message.mentions);
+
+    let userId = message.mentions.users.first().id;
+    let kick_msg = message.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
+
+    message.member.guild.members.find(x => x.id == userId).kick(kick_msg)
+  } else if(message.content.startsWith('!밴')) {
+    if(message.channel.type == 'dm') {
+      return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
+    }
+
+    if(message.channel.type != 'dm' && checkPermission(message)) return
+
+    console.log(message.mentions);
+
+    let userId = message.mentions.users.first().id;
+    let kick_msg = message.author.username+'#'+message.author.discriminator+'이(가) 강퇴시켰습니다.';
+
+    message.member.guild.members.find(x => x.id == userId).ban(kick_msg)
   }
 });
 
@@ -378,4 +404,4 @@ function MessageSave(message, modify=false) {
 }
 
 
-client.login(token);
+client.login(token); 
